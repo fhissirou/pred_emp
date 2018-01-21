@@ -1,0 +1,273 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prediction des employés{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/vendor/styles/predEmp.css') }}"
+          xmlns="http://www.w3.org/1999/html">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+{% endblock %}
+
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="w3-container w3-teal">
+        <h2>Étude du bien-être en entreprise</h2>
+    </div>
+    <div class="text-center">
+        <p>Dans le cadre de notre formation en traitement des données avancées, nous effectuons une étude sur le bien-être en entreprise.<br>
+
+            Ce questionnaire se destine exclusivement aux personnes qui ont au moins une expérience professionnelle  en entreprise*<br>
+
+            Le questionnaire est anonyme*<br>
+        </p>
+        <hr>
+    </div>
+
+    <div class="w3-container w3-teal">
+        <h3>Votre profil</h3>
+    </div>
+    <div class="text-center">
+        {{ form_label(form.genre, "Quel est votre genre?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+{#        {{ form_errors(form.noteAnimauxElephant) }}#}
+        {{ form_widget(form.genre) }}
+        <hr>
+    </div>
+
+    <div class="text-center">
+        {{ form_label(form.age, "Dans quelle tranche d'âge vous situez-vous ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(form.age) }}
+        <hr>
+    </div>
+
+    <div class="text-center">
+        {{ form_label(form.professions, "Dans quelle catégorie socio-professionnelle se situe votre poste?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(form.professions) }}
+        <hr>
+    </div>
+
+    <div class="text-center">
+        {{ form_label(form.situationHandi, "Êtes-vous en situation de handicap? ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(form.situationHandi) }}
+        <hr>
+    </div>
+
+    <div class="w3-container w3-teal">
+        <h3>Profil de personnalité</h3>
+    </div>
+
+    <div class="text-center">
+        {{ form_label(form.centrePersoUn, "Quel type vous correspond le plus ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(form.centrePersoUn) }}
+        <hr>
+    </div>
+
+    <div class="text-center">
+        {{ form_label(form.centrePersoDeux, "Quel type vous correspond le plus ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(form.centrePersoDeux) }}
+        <hr>
+    </div>
+
+    <div class="text-center">
+        {{ form_label(form.centrePersoTrois, "Quel type vous correspond le plus ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        {{ form_widget(form.centrePersoTrois) }}
+        <hr>
+    </div>
+
+
+    <div class="w3-container w3-teal">
+        <h3>Notez les animaux ci-dessous selon votre préférence. </h3>
+        <p>1 - Je n'aime pas<br></p>
+        <p>10 - J'aime<br></p>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxElephant, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/elephant.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxElephant) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxTaureau, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/taureau.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxTaureau) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxLion, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/lion.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxLion) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxCoq, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/coq.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxCoq) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxRenard, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/renard.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxRenard) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxChien, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/chien.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxChien) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxHibou, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/hibou.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxHibou) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.noteAnimauxCastor, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            <img src="{{ asset('assets/images/castor.png') }}">
+        </div>
+        <div>
+            {{ form_widget(form.noteAnimauxCastor) }}
+        </div>
+        <hr>
+    </div>
+    <div class="w3-container w3-teal">
+        <h3>Environnement du travail</h3>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.nombreExperience, "Quelle est la durée de votre expérience professionnelle ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.nombreExperience) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.sentimentEnvironnement, "Comment vous sentez-vous dans votre environnement de travail ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.sentimentEnvironnement) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.confianceEchangeEntreprise, "Quelle est la place  de la confiance au sein de vos échanges en entreprise?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.confianceEchangeEntreprise) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.cooperationEchangeEntreprise, "Quelle place prend la coopération au sein de vos échanges en entreprise ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.cooperationEchangeEntreprise) }}
+        </div>
+        <hr>
+    </div>
+
+    <div class="w3-container w3-teal">
+        <h3>Profil professionnel</h3>
+    </div>
+
+    <div class="text-center">
+        <div>
+            {{ form_label(form.petinenceMission, "Evaluez la pertinence des missions qui vous sont confiées", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.petinenceMission) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.niveauExigence, "Quel niveau d'exigence (physiques, cognitive, émotionnelles, compétences, connaissances)  votre poste sollicite-t-il ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.niveauExigence) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.freqPauseDejEquipe, "A quelle fréquence prenez-vous des pauses (déjeuner et autres) avec votre équipe?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.freqPauseDejEquipe) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.remuneration, "A quelle fréquence prenez-vous des pauses (déjeuner et autres) avec votre équipe?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.remuneration) }}
+        </div>
+        <hr>
+    </div>
+    <div class="text-center">
+        <div>
+            {{ form_label(form.trajet, "Donnez une note d’appréciation de votre trajet  (domicile/travail) ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        </div>
+        <div>
+            {{ form_widget(form.trajet) }}
+        </div>
+        <hr>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+

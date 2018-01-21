@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prediction des employés{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/vendor/styles/predEmp.css') }}"
+          xmlns="http://www.w3.org/1999/html">
+
+{% endblock %}
+
+
+{% block body %}
+    {{ knn }}
+{% endblock %}
+
