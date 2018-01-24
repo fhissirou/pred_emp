@@ -2,7 +2,7 @@
 
 {% block title %}Prediction des employés{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/vendor/styles/predEmp.css') }}"
+    <link rel="stylesheet" href="{{ asset('assets/vendor/styles/questionnaire.css') }}"
           xmlns="http://www.w3.org/1999/html">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -29,7 +29,7 @@
     </div>
     <div class="text-center">
         {{ form_label(form.genre, "Quel est votre genre?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-{#        {{ form_errors(form.noteAnimauxElephant) }}#}
+        {#        {{ form_errors(form.noteAnimauxElephant) }}#}
         {{ form_widget(form.genre) }}
         <hr>
     </div>
@@ -55,216 +55,488 @@
     <div class="w3-container w3-teal">
         <h3>Profil de personnalité</h3>
     </div>
+    <ul>
+        <li>
+            <div class="text-center">
+                <h4>Quel type vous correspond le plus ?</h4>
+                {% for child in form.centrePersoUn %}
+                    <ul>
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                    </ul>
+                {% endfor %}
+            </div>
+        </li>
+        <li>
+            <div class="text-center">
+                <h4>Quel type vous correspond le plus ?</h4>
+                {% for child in form.centrePersoDeux %}
+                    <ul>
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                    </ul>
+                {% endfor %}
+            </div>
+        </li>
+        <li>
+            <div class="text-center">
+                <h4>Quel type vous correspond le plus ?</h4>
+                {% for child in form.centrePersoTrois %}
+                    <ul>
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                    </ul>
+                {% endfor %}
+            </div>
+        </li>
+        <li>
+            <div class="text-center">
+                <h4>Quel type vous correspond le plus ?</h4>
+                {% for child in form.centrePersoQuatre %}
+                    <ul>
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                    </ul>
+                {% endfor %}
+            </div>
+        </li>
+    </ul>
 
-    <div class="text-center">
-        {{ form_label(form.centrePersoUn, "Quel type vous correspond le plus ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_widget(form.centrePersoUn) }}
-        <hr>
-    </div>
-
-    <div class="text-center">
-        {{ form_label(form.centrePersoDeux, "Quel type vous correspond le plus ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_widget(form.centrePersoDeux) }}
-        <hr>
-    </div>
-
-    <div class="text-center">
-        {{ form_label(form.centrePersoTrois, "Quel type vous correspond le plus ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_widget(form.centrePersoTrois) }}
-        <hr>
-    </div>
-
+    <hr>
 
     <div class="w3-container w3-teal">
         <h3>Notez les animaux ci-dessous selon votre préférence. </h3>
         <p>1 - Je n'aime pas<br></p>
         <p>10 - J'aime<br></p>
     </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxElephant, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/elephant.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxElephant) }}
-        </div>
+    <div>
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/elephant.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxElephant %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxElephant %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/taureau.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxTaureau %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxTaureau%}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/lion.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxLion %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxLion %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/coq.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxCoq %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxCoq %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/renard.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxRenard %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxRenard %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>
+                    {{ form_label(form.noteAnimauxChien, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                </h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/chien.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxChien %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxChien %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/hibou.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxHibou %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxHibou %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
+                <span>
+                    <img class="centerImage" src="{{ asset('assets/images/castor.png') }}">
+                </span>
+                <div class="animalWidget">
+                    {% for child in form.noteAnimauxCastor %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.noteAnimauxCastor %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <hr>
     </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxTaureau, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/taureau.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxTaureau) }}
-        </div>
-        <hr>
+
     </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxLion, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/lion.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxLion) }}
-        </div>
-        <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxCoq, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/coq.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxCoq) }}
-        </div>
-        <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxRenard, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/renard.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxRenard) }}
-        </div>
-        <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxChien, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/chien.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxChien) }}
-        </div>
-        <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxHibou, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/hibou.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxHibou) }}
-        </div>
-        <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.noteAnimauxCastor, "Donnez une note d’appréciation à l'image ci-dessous", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            <img src="{{ asset('assets/images/castor.png') }}">
-        </div>
-        <div>
-            {{ form_widget(form.noteAnimauxCastor) }}
-        </div>
-        <hr>
-    </div>
+
+
     <div class="w3-container w3-teal">
         <h3>Environnement du travail</h3>
     </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.nombreExperience, "Quelle est la durée de votre expérience professionnelle ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.nombreExperience) }}
-        </div>
+    <div>
+        <li>
+            <div class="text-center">
+                <h4>Quelle est la durée de votre expérience professionnelle ?</h4>
+                <div class="animalWidget">
+                    {% for child in form.nombreExperience %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.nombreExperience %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+        <li>
+            <div class="text-center">
+                <h4>Comment vous sentez-vous dans votre environnement de travail ?</h4>
+                <div class="animalWidget">
+                    {% for child in form.sentimentEnvironnement %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.sentimentEnvironnement %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+
+        <li>
+            <div class="text-center">
+                <h4>Quelle est la place  de la confiance au sein de vos échanges en entreprise?</h4>
+                <div class="animalWidget">
+                    {% for child in form.confianceEchangeEntreprise %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.confianceEchangeEntreprise %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+        <hr>
+
+
+
+        <li>
+            <div class="text-center">
+                <h4>Quelle place prend la coopération au sein de vos échanges en entreprise ?</h4>
+                <div class="animalWidget">
+                    {% for child in form.cooperationEchangeEntreprise %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.cooperationEchangeEntreprise %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <hr>
     </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.sentimentEnvironnement, "Comment vous sentez-vous dans votre environnement de travail ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.sentimentEnvironnement) }}
-        </div>
-        <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.confianceEchangeEntreprise, "Quelle est la place  de la confiance au sein de vos échanges en entreprise?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.confianceEchangeEntreprise) }}
-        </div>
-        <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.cooperationEchangeEntreprise, "Quelle place prend la coopération au sein de vos échanges en entreprise ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.cooperationEchangeEntreprise) }}
-        </div>
-        <hr>
-    </div>
+
 
     <div class="w3-container w3-teal">
         <h3>Profil professionnel</h3>
     </div>
+    <div>
+        <li>
+            <div class="text-center">
+                <h4>Evaluez la pertinence des missions qui vous sont confiées</h4>
+                <div class="animalWidget">
+                    {% for child in form.petinenceMission %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
 
-    <div class="text-center">
-        <div>
-            {{ form_label(form.petinenceMission, "Evaluez la pertinence des missions qui vous sont confiées", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.petinenceMission) }}
-        </div>
+                    {% for child in form.petinenceMission %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.niveauExigence, "Quel niveau d'exigence (physiques, cognitive, émotionnelles, compétences, connaissances)  votre poste sollicite-t-il ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.niveauExigence) }}
-        </div>
+
+
+
+        <li>
+            <div class="text-center">
+                <h4>Quel niveau d'exigence (physiques, cognitive, émotionnelles, compétences, connaissances)  votre poste sollicite-t-il ?</h4>
+                <div class="animalWidget">
+                    {% for child in form.niveauExigence %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.niveauExigence %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.freqPauseDejEquipe, "A quelle fréquence prenez-vous des pauses (déjeuner et autres) avec votre équipe?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.freqPauseDejEquipe) }}
-        </div>
+
+
+
+        <li>
+            <div class="text-center">
+                <h4>A quelle fréquence prenez-vous des pauses (déjeuner et autres) avec votre équipe?</h4>
+                <div class="animalWidget">
+                    {% for child in form.freqPauseDejEquipe %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.freqPauseDejEquipe %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.remuneration, "A quelle fréquence prenez-vous des pauses (déjeuner et autres) avec votre équipe?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.remuneration) }}
-        </div>
+
+
+
+        <li>
+            <div class="text-center">
+                <h4>Rémuneration</h4>
+                <div class="animalWidget">
+                    {% for child in form.remuneration %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.remuneration %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <hr>
-    </div>
-    <div class="text-center">
-        <div>
-            {{ form_label(form.trajet, "Donnez une note d’appréciation de votre trajet  (domicile/travail) ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        </div>
-        <div>
-            {{ form_widget(form.trajet) }}
-        </div>
+
+
+
+        <li>
+            <div class="text-center">
+                <h4>Donnez une note d’appréciation de votre trajet  (domicile/travail)</h4>
+                <div class="animalWidget">
+                    {% for child in form.trajet %}
+                        <ul>
+                            {{ form_widget(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="animalLabel">
+
+                    {% for child in form.trajet %}
+                        <ul>
+                            {{ form_label(child) }}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
         <hr>
+
     </div>
+
 
     {{ form_end(form) }}
 

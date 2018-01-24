@@ -1,7 +1,7 @@
 function Matrix(options) {
     var margin = {top: 50, right: 50, bottom: 100, left: 100},
-        width = 650,
-        height = 650,
+        width = 840,
+        height = 840,
         data = options.data,
         container = options.container,
         labelsData = options.labels,

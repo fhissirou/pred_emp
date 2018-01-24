@@ -42,7 +42,7 @@ class PredEmpController extends Controller
             $em->persist($questionnaire);
             $em->flush();
 
-            die(dump($predUser));
+            //die(dump($predUser));
 
 
             return $this->render('default/predEmp.html.twig',$predUser);
@@ -86,17 +86,22 @@ class PredEmpController extends Controller
         $matriceCorr = $this->makeMatriceCorr($data);
 
         $listUsername = array();
-        for($i=0; $i<=count($data); $i++){
+        for($i=1; $i<count($data); $i++){
             $name = "usr".strval($i);
             array_push($listUsername,$name);
         }
 
-        //die(dump($corrPearson));
+        array_push($listUsername, "UserTest");
+
+        //dump(count($matriceCorr));
+        //die(dump(count($listUsername)));
+
+
 
         return array(
                 "AIForUser" => $resAIForUser,
                 "CorrPearson"=> $corrPearson,
-                "Labels"=> $listUsername,
+                "LabelsCorr"=> $listUsername,
                 "MatriceCorr" => $matriceCorr,
                 "Data"=> $data
             );
@@ -209,7 +214,7 @@ class PredEmpController extends Controller
 
         }
 
-        return round($diff_produit / sqrt($emp1_diff2 * $emp2_diff2), 2);
+        return round($diff_produit / sqrt($emp1_diff2 * $emp2_diff2), 1);
 
     }
 

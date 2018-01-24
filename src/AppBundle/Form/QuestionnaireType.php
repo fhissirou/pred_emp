@@ -40,25 +40,25 @@ class QuestionnaireType extends AbstractType
                 'choices_as_values' => true,
                 'required' => true))
             ->add('centrePersoUn',ChoiceType::class, array(
-                'choices'=> array("J'agis pour avoir de l'impact, du contrôle, du pouvoir sur le monde qui m'entoure."=>7,"J'agis pour avoir du contrôle sur moi-même."=>10,"Je cherche un équilibre entre les deux."=>3),
+                'choices'=> array("Je ne sais pas"=>1,"Je suis différent, je suis sensible"=>2,"Je suis bien, calme, facile à vivre"=>3,"Je suis optimiste, je suis heureux"=>4,"J'aime, j'aide"=>5,"Je suis loyal, je fais mon devoir"=>6,"Je suis fort, je suis juste"=>7,"Je suis, droit, je suis travailleur"=>8,"Je sais, je comprends"=>9,"Je réussi, je suis efficace"=>10),
                 'multiple' => false,
                 'expanded' => true,
                 'choices_as_values' => true,
                 'required' => true))
             ->add('centrePersoDeux',ChoiceType::class, array(
-                'choices'=> array("Je perçois avec une grande finesse les émotions des autres et cherche à les aider."=>5,"Je suis attentif à mes émotions et je valorise le naturel et l'authenticité."=>2,"Je cherche un équilibre entre les deux."=>8),
+                'choices'=> array("J'agis pour avoir de l'impact, du contrôle, du pouvoir sur le monde qui m'entoure."=>7,"J'agis pour avoir du contrôle sur moi-même."=>10,"Je cherche un équilibre entre les deux."=>3),
                 'multiple' => false,
                 'expanded' => true,
                 'choices_as_values' => true,
                 'required' => true))
             ->add('centrePersoTrois',ChoiceType::class, array(
-                'choices'=> array("Je veux comprendre le fonctionnement du monde qui m'entoure et accumule des informations à son propos."=>9,"J'imagine des plans pour créer une vie plus agréable et plus plaisante."=>4,"Je cherche un équilibre entre les deux."=>6),
+                'choices'=> array("Je perçois avec une grande finesse les émotions des autres et cherche à les aider."=>5,"Je suis attentif à mes émotions et je valorise le naturel et l'authenticité."=>2,"Je cherche un équilibre entre les deux."=>8),
                 'multiple' => false,
                 'expanded' => true,
                 'choices_as_values' => true,
                 'required' => true))
             ->add('centrePersoQuatre',ChoiceType::class, array(
-                'choices'=> array('1'=>1,'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9,'10'=>10),
+                'choices'=> array("Je veux comprendre le fonctionnement du monde qui m'entoure et accumule des informations à son propos."=>9,"J'imagine des plans pour créer une vie plus agréable et plus plaisante."=>4,"Je cherche un équilibre entre les deux."=>6),
                 'multiple' => false,
                 'expanded' => true,
                 'choices_as_values' => true,
@@ -111,7 +111,12 @@ class QuestionnaireType extends AbstractType
                 'expanded' => true,
                 'choices_as_values' => true,
                 'required' => true))
-            ->add('nombreExperience')
+            ->add('nombreExperience',ChoiceType::class, array(
+                'choices'=> array('< 1'=>1,'1-2'=>2,'2-3'=>3,'3-4'=>4,'4-5'=>5,'5-8'=>6,'8-10'=>7,'10-15'=>8,'15-20'=>9,'> 20 '=>10),
+                'multiple' => false,
+                'expanded' => true,
+                'choices_as_values' => true,
+                'required' => true))
             ->add('sentimentEnvironnement', ChoiceType::class, array(
                 'choices'=> array('1'=>1,'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9,'10'=>10),
                 'multiple' => false,
@@ -165,8 +170,8 @@ class QuestionnaireType extends AbstractType
                 'attr'  => array('class' => 'btn btn-default pull-right')
             ));;
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
