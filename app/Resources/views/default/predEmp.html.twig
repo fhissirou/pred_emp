@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/styles/predEmp.css') }}"
           xmlns="http://www.w3.org/1999/html">
 
+    <link rel="stylesheet" href="{{ asset('assets/plugins/w3.css') }}">
 {% endblock %}
 
 
@@ -12,6 +13,92 @@
     <div style="display:inline-block;" id="legend"></div>
     <div style="display:inline-block; float:left" id="container"></div>
 
+<div id="container1" class="w3-container w3-teal">
+    <h2>Le resultat de l'analyse des données évalue le départ anticipé de l'employé</h2>
+</div>
+<div id="container" class="w3-container w3-light-grey">
+    <div class="text-center">
+        <div class="w3-container w3-teal">
+            <h3>Corrélation de Pearson</h3>
+        </div>
+        <ul>
+            <div>
+                <li>
+                    <h4>Matrice de corrélation entre les employers</h4>
+                    <div>
+                        <div  id="corrSVG"></div><br>
+                    </div>
+                    <hr>
+                </li>
+            </div>
+        </ul>
+        <ul>
+            <div>
+                <li>
+                    <h4>Evaluation du profil avec corrélation</h4>
+                    {% if CorrPearson == "Oui" %}
+                        <div>
+                           - Détermine que l'employé est susceptible d'envisager un départ de son poste.
+                        </div>
+                    {% else %}
+                        <div>
+                           - Détermine que l'employé envisage pérennement l'occupation de son poste.
+                        </div>
+                    {% endif %}
+                </li>
+            </div>
+
+        </ul>
+        <hr>
+    </div>
+
+    <div class="text-center">
+        <div class="w3-container w3-teal">
+            <h3>Résultats des prédictions avec les algorithmes de Machine Learning</h3>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <h4>K - Plus proche voisin </h4>
+                    {% if AIForUser.KNN == "Oui" %}
+                    <div>
+                       - Détermine que l'employé est susceptible d'envisager un départ de son poste.
+                    </div>
+                    {% else %}
+                    <div>
+                       - Détermine que l'employé envisage pérennement l'occupation de son poste.
+                    </div>
+                    {% endif %}
+                </li>
+                <li>
+                    <h4>Naïve Bayésien</h4>
+                    {% if AIForUser.NB == "Oui" %}
+                        <div>
+                           - Détermine que l'employé est susceptible d'envisager un départ de son poste.
+                        </div>
+                    {% else %}
+                        <div>
+                           - Détermine que l'employé envisage pérennement l'occupation de son poste.
+                        </div>
+                    {% endif %}
+                </li>
+                <li>
+                    <h4>Machine à Vecteurs de Support</h4>
+                    {% if AIForUser.SVC == "Oui" %}
+                        <div>
+                           - Détermine que l'employé est susceptible d'envisager un départ de son poste.
+                        </div>
+                    {% else %}
+                        <div>
+                           - Détermine que l'employé envisage pérennement l'occupation de son poste.
+                        </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
 
 
@@ -44,7 +131,7 @@
         var labels = {{ (LabelsCorr | json_encode|raw) }};
 
         Matrix({
-            container : '#container',
+            container : '#corrSVG',
             data      : correlationMatrix,
             labels    : labels,
             start_color : '#ffffff',

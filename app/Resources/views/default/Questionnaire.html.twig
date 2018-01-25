@@ -4,16 +4,19 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('assets/vendor/styles/questionnaire.css') }}"
           xmlns="http://www.w3.org/1999/html">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{#    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">#}
+
+    <link rel="stylesheet" href="{{ asset('assets/plugins/w3.css') }}">
 
 {% endblock %}
 
 
 {% block body %}
+    <div id="container1" class="w3-container w3-teal">
     {{ form_start(form) }}
-    <div class="w3-container w3-teal">
         <h2>Étude du bien-être en entreprise</h2>
     </div>
+    <div id="container" class="w3-container w3-light-grey">
     <div class="text-center">
         <p>Dans le cadre de notre formation en traitement des données avancées, nous effectuons une étude sur le bien-être en entreprise.<br>
 
@@ -24,33 +27,74 @@
         <hr>
     </div>
 
+
+
     <div class="w3-container w3-teal">
         <h3>Votre profil</h3>
     </div>
-    <div class="text-center">
-        {{ form_label(form.genre, "Quel est votre genre?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {#        {{ form_errors(form.noteAnimauxElephant) }}#}
-        {{ form_widget(form.genre) }}
-        <hr>
-    </div>
+    <div>
+        <ul>
+            <li>
+                <div class="text-center">
+                    <h4>Quel est votre genre?</h4>
+                    <ul>
+                        {% for child in form.genre %}
+                            <ul>
+                                {{ form_widget(child) }}
+                                {{ form_label(child) }}
+                            </ul>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            <hr>
+            <li>
+                <div class="text-center">
+                    <h4>Dans quelle tranche d'âge vous situez-vous ?</h4>
+                    <ul>
+                        {% for child in form.age %}
+                            <ul>
+                                {{ form_widget(child) }}
+                                {{ form_label(child) }}
+                            </ul>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
 
-    <div class="text-center">
-        {{ form_label(form.age, "Dans quelle tranche d'âge vous situez-vous ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_widget(form.age) }}
-        <hr>
-    </div>
+            <hr>
+            <li>
+                <div class="text-center">
+                    <h4>Dans quelle catégorie socio-professionnelle se situe votre poste?</h4>
+                    <ul>
+                        {% for child in form.professions %}
+                            <ul>
+                                {{ form_widget(child) }}
+                                {{ form_label(child) }}
+                            </ul>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
 
-    <div class="text-center">
-        {{ form_label(form.professions, "Dans quelle catégorie socio-professionnelle se situe votre poste?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_widget(form.professions) }}
-        <hr>
-    </div>
 
-    <div class="text-center">
-        {{ form_label(form.situationHandi, "Êtes-vous en situation de handicap? ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_widget(form.situationHandi) }}
-        <hr>
+            <hr>
+            <li>
+                <div class="text-center">
+                    <h4>Êtes-vous en situation de handicap?</h4>
+                    <ul>
+                        {% for child in form.situationHandi %}
+                            <ul>
+                                {{ form_widget(child) }}
+                                {{ form_label(child) }}
+                            </ul>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
     </div>
+    <hr>
 
     <div class="w3-container w3-teal">
         <h3>Profil de personnalité</h3>
@@ -110,6 +154,7 @@
         <p>10 - J'aime<br></p>
     </div>
     <div>
+        <ul>
         <li>
             <div class="text-center">
                 <h4>Donnez une note d’appréciation à l'image ci-dessous</h4>
@@ -310,16 +355,15 @@
                 </div>
             </div>
         </li>
-        <hr>
+        </ul>
     </div>
-
-    </div>
-
+    <hr>
 
     <div class="w3-container w3-teal">
         <h3>Environnement du travail</h3>
     </div>
     <div>
+        <ul>
         <li>
             <div class="text-center">
                 <h4>Quelle est la durée de votre expérience professionnelle ?</h4>
@@ -409,14 +453,15 @@
                 </div>
             </div>
         </li>
-        <hr>
+        </ul>
     </div>
-
+    <hr>
 
     <div class="w3-container w3-teal">
         <h3>Profil professionnel</h3>
     </div>
     <div>
+        <ul>
         <li>
             <div class="text-center">
                 <h4>Evaluez la pertinence des missions qui vous sont confiées</h4>
@@ -491,7 +536,7 @@
 
         <li>
             <div class="text-center">
-                <h4>Rémuneration</h4>
+                <h4>Votre rémunération est-elle conforme à vos attentes?</h4>
                 <div class="animalWidget">
                     {% for child in form.remuneration %}
                         <ul>
@@ -533,13 +578,12 @@
                 </div>
             </div>
         </li>
-        <hr>
-
+        </ul>
     </div>
-
+    <hr>
 
     {{ form_end(form) }}
-
+</div>
 {% endblock %}
 
 

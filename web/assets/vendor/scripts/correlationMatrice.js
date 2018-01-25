@@ -123,8 +123,7 @@ function Matrix(options) {
         .attr("text-anchor", "end")
         .text(function(d, i) { return d; });
 
-    var key = d3.select("#legend")
-        .append("svg")
+    var key = d3.select(container).append("svg")
         .attr("width", widthLegend)
         .attr("height", height + margin.top + margin.bottom);
 
